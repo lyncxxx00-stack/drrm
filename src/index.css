@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #020617;
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e3a8a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:border-slate-700 hover:bg-slate-900;
+  }
+
+  .stat-card {
+    @apply card card-hover p-5 transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-sm font-semibold uppercase tracking-wider text-slate-400;
+  }
+
+  .tab-btn {
+    @apply px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 whitespace-nowrap;
+  }
+
+  .tab-btn-active {
+    @apply bg-primary-600 text-white shadow-lg shadow-primary-600/20;
+  }
+
+  .tab-btn-inactive {
+    @apply text-slate-400 hover:bg-slate-800 hover:text-slate-200;
+  }
+
+  .data-row {
+    @apply flex items-center justify-between py-2.5 border-b border-slate-800 last:border-0;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 shadow-lg shadow-primary-600/20;
+  }
+
+  .btn-ghost {
+    @apply text-slate-300 hover:bg-slate-800;
+  }
+
+  .btn-danger {
+    @apply bg-danger-600 text-white hover:bg-danger-700 shadow-lg shadow-danger-600/20;
+  }
+}
+
+/* Gauge gradient */
+.gauge-bg {
+  background: conic-gradient(
+    from -90deg,
+    #22c55e 0deg 72deg,
+    #f59e0b 72deg 144deg,
+    #ef4444 144deg 180deg,
+    transparent 180deg 360deg
+  );
+}
+
+/* Map grid overlay */
+.map-grid {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Scanline effect for AI analysis */
+.scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #06b6d4, transparent);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+}
+
+/* Damage detection box animation */
+.detect-box {
+  animation: detectBox 0.6s ease-out;
+}
+
+@keyframes detectBox {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Ticker animation */
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker 40s linear infinite;
+}
